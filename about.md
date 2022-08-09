@@ -1,4 +1,4 @@
 # About
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+I am Hisham Khdair, Ph.D. in Computer Science - Software Engineering, educator, researcher, and coder. I have a strong passion for education, making artificial intelligence and machine learning more accessible, and teaching people how to apply AI excites me.
 
