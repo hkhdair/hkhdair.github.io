@@ -1,19 +1,3 @@
-<link href="img/favicon.png" rel="icon">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
-
-  <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-  <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/nb2.css">
-
-
 ```python
 import numpy as np
 import torch
@@ -726,45 +710,3 @@ model(torch.tensor([[75, 63, 44.]]))
 
     tensor([[54.2649, 69.2840]], grad_fn=<AddmmBackward>)
 
-
-
-
-```python
-
-```
-<!-- +++++ Footer Section +++++ -->
-  <div id="footer">
-    <div class="container">
-      <div class="row">
-        
-        <!-- /col-lg-4 -->
-
-        
-        <!-- /col-lg-4 -->
-
-        <div class="col-lg-4">
-          <h4>About</h4>
-          
-        <p>In this blog, I write freely to try to simplify the complex concepts for myself and everyone else. Making artificial intelligence and machine learning more accessible and teaching people how to apply AI are somethings that excite me.</p></div>
-        <!-- /col-lg-4 -->
-      </div>
-    </div>
-  </div>
-
-  <div id="copyrights">
-    <div class="container">
-      <p>
-        © Copyrights <strong>HishamKhdair</strong>. All Rights Reserved
-      </p>
-      
-    </div>
-  </div>
-  <!-- / copyrights -->
-
-  <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-
-  <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
