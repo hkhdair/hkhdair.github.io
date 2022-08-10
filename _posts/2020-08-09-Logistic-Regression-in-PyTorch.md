@@ -1,14 +1,14 @@
-```python
-import numpy as np
-import torch
-```
-
-<small>We'll create a model that predicts crop yields for apples and oranges (target variables) by looking at the average temperature, rainfall, and humidity (input variables or features) in a region. Here's the training data:</small>
+<small>logistic regression (or logit regression) is estimating the parameters of a logistic model, i.e. the coefficients in the linear combination. In this blog We'll create a model that predicts crop yields for apples and oranges (target variables) by looking at the average temperature, rainfall, and humidity (input variables or features) in a region. We'll create the model in PyTorch.
+    
+To start, here's the training data:</small>
 
 <img src="https://i.imgur.com/6Ujttb4.png">
 
 
 ```python
+import numpy as np
+import torch
+
 # Input (temp, rainfall, humidity)
 inputs = np.array(
     [[73,67,43],
