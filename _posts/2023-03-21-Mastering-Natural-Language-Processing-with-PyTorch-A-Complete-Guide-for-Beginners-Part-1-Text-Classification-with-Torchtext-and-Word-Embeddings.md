@@ -270,9 +270,9 @@ An example of padding is shown below:
 
 Original sentences: `[“I really love this movie”, “It was terrible”, “The acting was good”]`
 
-Tokenized sentences: `[[9, 20, 56, 11, 17], [10, 21, 88], [8, 45, 21, 32]]`
+Tokenized sentences: `[[9, 14, 56, 11, 17], [10, 21, 88], [8, 45, 21, 32]]`
 
-Padded sentences to the longest sentence in our list (with maxlen=5): `[[9, 20, 56, 11, 17], [10, 21, 88 ,1 ,1], [8 ,45 ,21 ,32 ,1]]`
+Padded sentences to the longest sentence in our list (with maxlen=5): `[[9, 14, 56, 11, 17], [10, 21, 88 ,1 ,1], [8 ,45 ,21 ,32 ,1]]`
 <!-- #endregion -->
 
 <!-- #region id="t6mzjlqgu8g6" -->
