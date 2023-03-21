@@ -1,5 +1,6 @@
 <!-- #region id="9aga3Dt1Fln8" -->
-#### Mastering Natural Language Processing with PyTorch: A Complete Guide for Beginners _ Part 1 - Text Classification with Torchtext and Word Embeddings
+#### Mastering Natural Language Processing with PyTorch: A Complete Guide for Beginners 
+#### Part 1 - Text Classification with Torchtext and Word Embeddings
 <!-- #endregion -->
 
 <!-- #region id="QjYSxNAiI3tP" -->
@@ -76,8 +77,8 @@ Let's have a look at the data we are working with, i.e. look at a sample raw tex
 ```python colab={"base_uri": "https://localhost:8080/"} id="xF9FWWE7vvPg" outputId="887600c6-b15b-4e9d-bcba-0a5989d0d171"
 !cat aclImdb/train/pos/10001_10.txt
 
-# out:
-# Brilliant over-acting by Lesley Ann Warren. Best dramatic hobo lady I have ever seen, and love scenes in clothes warehouse are second to none. The corn on face is a classic, as good as anything in Blazing Saddles. The take on lawyers is also superb. After being accused of being a turncoat, selling out his boss, and being dishonest the lawyer of Pepto Bolt shrugs indifferently "I'm a lawyer" he says. Three funny words. Jeffrey Tambor, a favorite from the later Larry Sanders show, is fantastic here too as a mad millionaire who wants to crush the ghetto. His character is more malevolent than usual. The hospital scene, and the scene where the homeless invade a demolition site, are all-time classics. Look for the legs scene and the two big diggers fighting (one bleeds). This movie gets better each time I see it (which is quite often).
+#out:
+#Brilliant over-acting by Lesley Ann Warren. Best dramatic hobo lady I have ever seen, and love scenes in clothes warehouse are second to none. The corn on face is a classic, as good as anything in Blazing Saddles. The take on lawyers is also superb. After being accused of being a turncoat, selling out his boss, and being dishonest the lawyer of Pepto Bolt shrugs indifferently "I'm a lawyer" he says. Three funny words. Jeffrey Tambor, a favorite from the later Larry Sanders show, is fantastic here too as a mad millionaire who wants to crush the ghetto. His character is more malevolent than usual. The hospital scene, and the scene where the homeless invade a demolition site, are all-time classics. Look for the legs scene and the two big diggers fighting (one bleeds). This movie gets better each time I see it (which is quite often).
 
 ```
 
@@ -110,8 +111,8 @@ texts, labels = read_text_data(data_path/'train')
 
 print(f'Successfully read {len(texts)} texts, and {len(labels)} labels from training dataset')
 
-# out:
-# Successfully read 25000 texts, and 25000 labels from training dataset
+#out:
+#Successfully read 25000 texts, and 25000 labels from training dataset
 ```
 
 <!-- #region id="v5xAJBGzEM4C" -->
@@ -136,6 +137,8 @@ Let's see a sample standardized and tokenized text:
 ```python colab={"base_uri": "https://localhost:8080/"} id="a4eTzHrIzr3M" outputId="93bc7fd2-ce71-4d10-ab1f-ae1c97764932"
 tokenizer('HERE Is an Example ;')
 
+```
+```python
 # out:
 # ['here', 'is', 'an', 'example']
 ```
@@ -173,12 +176,12 @@ print(vocab(['here', 'is', 'an', 'example']))
 
 # checking the index of a word that is not present in the vocabulary, returns 0, the index for <unk>
 print(vocab['biblioklept'])
+```
+```python
 
 # out:
 # 100683
-
 # [131, 9, 40, 464]
-
 # 0
 ```
 
@@ -284,7 +287,9 @@ label, text = next(iter(train_loader))
 print(label.shape, text.shape)
 print(label, text)
 
-# out:
+```
+```python
+#out:
 '''torch.Size([32]) torch.Size([922, 32])
 tensor([0., 0., 1., 1., 0., 0., 1., 0., 0., 1., 0., 1., 0., 1., 1., 0., 0., 0.,
         0., 0., 0., 1., 1., 1., 1., 1., 0., 1., 0., 1., 1., 1.],
@@ -462,7 +467,9 @@ with torch.no_grad():
 print("Test: Loss: %.4f Acc: %.4f" %
         (test_loss / len(test_loader), 
         test_acc / len(test_loader)))
-
+        
+```
+```python
 # out:
 # Test: Loss: 0.3270 Acc: 0.8808
 ```
@@ -489,6 +496,8 @@ def predict_sentiment(model, sentence):
 sentiment = predict_sentiment(model, "Very bad movie")
 sentiment
 
+```
+```python
 # out:
 # 5.249739285455989e-26
 ```
@@ -497,6 +506,8 @@ sentiment
 sentiment = predict_sentiment(model, "This movie is awesome")
 sentiment
 
+```
+```python
 # out:
 # 1.0
 ```
