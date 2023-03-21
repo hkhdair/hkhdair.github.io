@@ -1,16 +1,3 @@
----
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.14.4
-  kernelspec:
-    display_name: Python 3
-    name: python3
----
-
 <!-- #region id="9aga3Dt1Fln8" -->
 #### Mastering Natural Language Processing with PyTorch: A Complete Guide for Beginners _ Part 1 - Text Classification with Torchtext and Word Embeddings
 <!-- #endregion -->
