@@ -301,7 +301,7 @@ tensor([0., 0., 1., 1., 0., 0., 1., 0., 0., 1., 0., 1., 0., 1., 1., 0., 0., 0.,
 <!-- #region id="Q7g5b71ZwGKJ" -->
 One last note before starting the modelling, we used `batch_first=False` in `pad_sequence` in our custom collate function above, and the benefit is to make the padded sequences have a shape of (sequence_length, batch_size), which is the expected input shape for the model in PyTorch.
 
-Great, we are done with preprocessin our data, let's build our model now.
+Great, we are done with preprocessing our data, let's build our model now.
 <!-- #endregion -->
 
 <!-- #region id="GDrAw03IxO7O" -->
@@ -503,7 +503,7 @@ sentiment
 ```
 
 <!-- #region id="Afh927apMWZB" -->
-Well done! Our model gives a very low score to a negative sentiment and gives 1 for a positive movie review.
+Well done! Our model gives a very low score for a negative sentiment and gives 1 for a positive movie review.
 
 Our model is doing great, let's save it for inference later on:
 <!-- #endregion -->
