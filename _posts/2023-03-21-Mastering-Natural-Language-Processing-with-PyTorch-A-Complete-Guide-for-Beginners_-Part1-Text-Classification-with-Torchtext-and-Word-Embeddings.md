@@ -263,7 +263,7 @@ val_loader = DataLoader(val_dataset, collate_fn=collate_batch, batch_size=batch_
 ```
 
 <!-- #region id="GhFGTskjs21Q" -->
-You can see the benefit o the custom defined `collate_batch()` function we defined above, we used it for instance to pad the sequences with `padding_value=1.0`, the benefit of padding the sequence with 1.0 in the previous step is to make all the input sequences have the same length, which is required by most deep learning models for NLP. Padding also helps to preserve the information at the beginning and end of the sequence, which can be important for some tasks. Padding with 1.0 is a common choice because it is a neutral value that does not interfere with other tokens. 
+You can see the benefit of the custom defined `collate_batch()` function we defined above, we used it, for instance, to pad the sequences with `padding_value=1.0`, the benefit of padding the sequence with 1.0 in the previous step is to make all the input sequences have the same length, which is required by most deep learning models for NLP. Padding also helps to preserve the information at the beginning and end of the sequence, which can be important for some tasks. Padding with 1.0 is a common choice because it is a neutral value that does not interfere with other tokens. 
 
 We need such a step because natural language sentences have variable lengths, but deep learning models expect fixed-size inputs. For example, if we want to use a recurrent neural network (RNN) to process a batch of sentences, we need to pad them to the maximum length in the batch so that they can be fed into the deep learning model as a matrix.
 
