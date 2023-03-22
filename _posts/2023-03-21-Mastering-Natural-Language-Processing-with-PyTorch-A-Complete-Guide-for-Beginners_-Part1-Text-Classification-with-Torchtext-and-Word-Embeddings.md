@@ -469,7 +469,7 @@ print("Test: Loss: %.4f Acc: %.4f" %
 ```
 
 <!-- #region id="ioI0sJaBKpMr" -->
-We get an around 88.1% on the test dataset. Not bad!
+We get around 88.1% accuracy on the test dataset. Not bad!
 
 Let's see how it works on some randome input text data, we'll do some housekeeping jobs first:
 <!-- #endregion -->
@@ -505,11 +505,11 @@ sentiment
 <!-- #region id="Afh927apMWZB" -->
 Well done! Our model gives a very low score to a negative sentiment and gives 1 for a positive movie review.
 
-Our model is doing great, let's save it for inference later:
+Our model is doing great, let's save it for inference later on:
 <!-- #endregion -->
 
 ```python
-torch. Save(model.state_dict(), 'movieclassification-model.pt')
+torch.save(model.state_dict(), 'movieclassification-model.pt')
 ```
 
 <!-- #region id="EI6dAsnsNJAA" -->
