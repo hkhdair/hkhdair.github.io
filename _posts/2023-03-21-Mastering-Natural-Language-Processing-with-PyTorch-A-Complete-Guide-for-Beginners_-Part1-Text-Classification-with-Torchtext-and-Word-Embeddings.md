@@ -1,9 +1,10 @@
 <!-- #region id="9aga3Dt1Fln8" -->
-#### Mastering Natural Language Processing with PyTorch: 
-#### A Complete Guide for Beginners, Part 1: Text Classification with Torchtext and Word Embeddings
+#### Mastering Natural Language Processing with PyTorch - A Complete Guide for Beginners:
+#### Part 1: Text Classification with Torchtext and Word Embeddings
 <!-- #endregion -->
 
 <!-- #region id="QjYSxNAiI3tP" -->
+<br>
 Natural Language Processing (NLP) is a rapidly growing field with numerous applications in text classification, sentiment analysis, language translation, and more. PyTorch, one of the most popular deep learning frameworks, has been increasingly used in the development of NLP models. With PyTorch, researchers and developers can easily build and train deep learning models for processing natural language data. In this tutorial series, we will explore various neural network architectures for NLP tasks and demonstrate how PyTorch can be used to implement them.
 
 One of the essential components in NLP models is the handling of text data. The torchtext library provides a simple and efficient way to load and preprocess text data for NLP tasks. We will be using torchtext library in today's tutorial to load and preprocess text data. Additionally, word embeddings are a fundamental part of NLP, and we will be using the embedding layer from PyTorch to encode the text data into dense vectors, which can be processed by the NLP model.
@@ -14,7 +15,7 @@ We will start by exploring word embeddings and their significance in NLP models.
 <!-- #endregion -->
 
 <!-- #region id="nAk1ZAgcNHYo" -->
-##### General steps for building NLP models
+#### General steps for building NLP models
 <!-- #endregion -->
 
 <!-- #region id="kLweItTpJo84" -->
@@ -48,14 +49,14 @@ By following these steps, raw text can be transformed into a format that can be 
 <!-- #endregion -->
 
 <!-- #region id="VBfscthstf7d" -->
-##### Preparing the IMDB movie reviews dataset
+#### Preparing the IMDB movie reviews dataset
 <!-- #endregion -->
 
 <!-- #region id="UesrA2z6ucnd" -->
 The initial step is to download the dataset from Andrew Maas' Stanford page and then extract the compressed file.
 <!-- #endregion -->
 
-```python colab={"base_uri": "https://localhost:8080/"} id="Za41WLJ-FVx2" outputId="7ba0aa48-d39b-4340-c6b0-0d6691418891"
+```python 
 !curl -O https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz
 !tar -xf aclImdb_v1.tar.gz
 ```
@@ -66,15 +67,15 @@ After downloading the dataset, you will have a directory named aclImdb that cont
 The dataset also contains a train/unsup subdirectory that we do not need for this task, so let's delete it.
 <!-- #endregion -->
 
-```python id="5DO1InIru5Ep"
+```python
 !rm -r aclImdb/train/unsup
 ```
 
-<!-- #region id="-fEXESpow9cc" -->
+<!-- -->
 Let's have a look at the data we are working with, i.e. look at a sample raw text data (a movie review) from the training dataset:
-<!-- #endregion -->
+<!-- -->
 
-```python colab={"base_uri": "https://localhost:8080/"} id="xF9FWWE7vvPg" outputId="887600c6-b15b-4e9d-bcba-0a5989d0d171"
+```python 
 !cat aclImdb/train/pos/10001_10.txt
 
 # out:
@@ -85,7 +86,7 @@ Let's have a look at the data we are working with, i.e. look at a sample raw tex
 Great! let's now read the text data from the training dataset directory. We will define a simple function to read the text data and return text and label pairs, and read the text data and labels from the train directory, as follows:
 <!-- #endregion -->
 
-```python colab={"base_uri": "https://localhost:8080/"} id="Jg4qRkAcxhUH" outputId="e5c5430b-885e-431a-cbba-006eecc33420"
+```python 
 import os
 import pathlib
 
@@ -115,14 +116,14 @@ print(f'Successfully read {len(texts)} texts, and {len(labels)} labels from trai
 ```
 
 <!-- #region id="v5xAJBGzEM4C" -->
-##### Processing the dataset with a text tokenizer and constrcut the vocabulary
+#### Processing the dataset with a text tokenizer and constrcut the vocabulary
 <!-- #endregion -->
 
 <!-- #region id="fZX15BXoTU50" -->
 We will use the `get_tokenizer()` function in the torchtext library from `torchtext.data.utils`. This function can be used to create a tokenizer that will be used to preprocess the text data, it takes an argument that specifies the type of tokenizer to create, we will use in this case a `basic_english` tokenizer. This is a simple type of tokenizer that splits the text into words based on whitespace and punctuation marks, converts all words to lowercase (i.e. standardizing and tokenizing). 
 <!-- #endregion -->
 
-```python id="el7O0W8d-sG4"
+```python 
 from torchtext.data.utils import get_tokenizer
 
 # Define a tokenizer function to preprocess the text
@@ -133,7 +134,7 @@ tokenizer = get_tokenizer('basic_english')
 Let's see a sample standardized and tokenized text:
 <!-- #endregion -->
 
-```python colab={"base_uri": "https://localhost:8080/"} id="a4eTzHrIzr3M" outputId="93bc7fd2-ce71-4d10-ab1f-ae1c97764932"
+```python 
 tokenizer('HERE Is an Example ;')
 
 # out:
@@ -144,7 +145,7 @@ tokenizer('HERE Is an Example ;')
 Next, we'll define a way to numercalize the tokens that can be created from the previous tokenizer, in particular, we'll index the tokens and map them to the vocabulary constructed for the entire words in the text corpus (i.e. indexing).
 <!-- #endregion -->
 
-```python id="4Wb0ferwXYOL"
+```python 
 from torchtext.vocab import build_vocab_from_iterator
 
 # Build the vocabulary from the text data
@@ -164,7 +165,7 @@ The `build_vocab_from_iterator()` allows us to build a vocabulary from an iterat
 We'll have some checks for the constructed vocabulary for our text set and word indexes below:
 <!-- #endregion -->
 
-```python colab={"base_uri": "https://localhost:8080/"} id="nWnPzzbzxE0z" outputId="74ca511c-32a6-4dd0-d721-4b4599142baf"
+```python 
 # the length of the constructed vocab from the text set, 100683 unique tokens
 print(len(vocab))
 
@@ -194,7 +195,7 @@ We will build a custom text dataset from the texts and labels we created earlier
 We can numericalize the text in the train dataset in the same custom dataset classs by the help of `numericalize_text()` that we defined in the earlier step, we can modify the `__getitem__` method of the CustomTextDataset class to apply the `numericalize_text()` function to each text sample, as follows:
 <!-- #endregion -->
 
-```python id="KHPoB3Wz3pOL"
+```python 
 import torch
 from torch.utils.data import Dataset, DataLoader, random_split
 
@@ -226,7 +227,7 @@ We also added the vocab and tokenizer arguments to the CustomTextDataset constru
 Let’s create the dataset now as an object of CustomeTextDataset class, and create validation set by setting apart 20% of the training dataset.
 <!-- #endregion -->
 
-```python id="5mw0xO9e9NR8"
+```python
 # Create train and validation datasets
 dataset = CustomTextDataset(texts, labels, vocab, numericalize_text)
 train_size = int(len(dataset) * 0.8)
@@ -240,7 +241,7 @@ Now, we'll generate the data batch. To generate the data batch, `torch.utils.dat
 Before sending to the model, `collate_fn` function works on a batch of samples generated from `DataLoader`. The input to `collate_fn` is a batch of data with the batch size in `DataLoader`, and `collate_fn` processes them according to the data processing a custom pipeline that we'll define in the following function named `collate_batch`, as follows.
 <!-- #endregion -->
 
-```python id="MZMKCFwDIWK4"
+```python 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 from torch.nn.utils.rnn import pad_sequence
@@ -270,16 +271,16 @@ An example of padding is shown below:
 
 Original sentences: `[“I really love this movie”, “It was terrible”, “The acting was good”]`
 
-Tokenized sentences: `[[9, 20, 56, 11, 17], [10, 21, 88], [8, 45, 21, 32]]`
+Tokenized sentences: `[[9, 14, 56, 11, 17], [10, 21, 88], [8, 45, 21, 32]]`
 
-Padded sentences to the longest sentence in our list (with maxlen=5): `[[9, 20, 56, 11, 17], [10, 21, 88 ,1 ,1], [8 ,45 ,21 ,32 ,1]]`
+Padded sentences to the longest sentence in our list (with maxlen=5): `[[9, 14, 56, 11, 17], [10, 21, 88 ,1 ,1], [8 ,45 ,21 ,32 ,1]]`
 <!-- #endregion -->
 
 <!-- #region id="t6mzjlqgu8g6" -->
 Let's make a last check to see how the data is stored in our `train_loader` batches:
 <!-- #endregion -->
 
-```python colab={"base_uri": "https://localhost:8080/"} id="4XOQDXAisngA" outputId="ce52d070-4d41-4c22-af58-edc5dc1e5c0b"
+```python 
 label, text = next(iter(train_loader))
 print(label.shape, text.shape)
 print(label, text)
@@ -333,7 +334,7 @@ Hence, our model defintion will be as follows:
 
 <!-- #endregion -->
 
-```python id="s9PPZtYEvdCl"
+```python 
 from torch import nn
 import torch.nn.functional as F
 
@@ -358,7 +359,7 @@ The structure and layers of the model are shown below:
 Input text -> Embedding layer -> Average pooling -> Linear layer -> Output value
 <!-- #endregion -->
 
-```python id="aMd_8qEk8Q5D"
+```python 
 # Create an instance of the text classification model with the given vocabulary size, embedding dimension and output dimension
 
 model = TextClassificationModel(vocab_size = len(vocab), embedding_dim = 100, output_dim = 1)
@@ -368,7 +369,7 @@ model = TextClassificationModel(vocab_size = len(vocab), embedding_dim = 100, ou
 #### Train and Evaluate the Model
 <!-- #endregion -->
 
-```python id="Tw4iQSlQ9AyQ"
+```python
 # Define a loss function based on binary cross entropy and sigmoid activation
 criterion = nn.BCEWithLogitsLoss()
 # Define an optimizer that updates the model parameters using Adam algorithm
@@ -382,7 +383,7 @@ model = model.to(device)
 Train the model for 10 epochs, print the training and validation loss and accuracy for each epoch:
 <!-- #endregion -->
 
-```python colab={"base_uri": "https://localhost:8080/"} id="ZUViMrHBF0wK" outputId="98147450-54f7-479b-d1be-dd7b796000b2"
+```python 
 for epoch in range(10):
   epoch_loss = 0
   epoch_acc = 0
@@ -431,7 +432,7 @@ After 10 epochs of training, we get around 88.9% accuracy on the validation data
 Let's see how it performs on the test dataset, but let's first prepare it as we did  for the training and validation datasets before.
 <!-- #endregion -->
 
-```python id="WVL0y4GwG1Cy"
+```python 
 # Read the text data and labels from the test directory
 test_labels, test_texts = read_text_data(data_path/'test')
 
@@ -442,7 +443,7 @@ test_dataset = CustomTextDataset(test_labels, test_texts, vocab, numericalize_te
 test_loader = DataLoader(test_dataset, collate_fn=collate_batch, batch_size=batch_size, shuffle=False)
 ```
 
-```python colab={"base_uri": "https://localhost:8080/"} id="q1O2K_H-J5lQ" outputId="51fe0af3-70eb-4de8-ffd0-17f2521e8500"
+```python 
 test_loss = 0
 test_acc = 0
 model.eval()
@@ -470,10 +471,10 @@ print("Test: Loss: %.4f Acc: %.4f" %
 <!-- #region id="ioI0sJaBKpMr" -->
 We get an around 88.1% on the test dataset. Not bad!
 
-Let's see how it works on a some randome input text data, we'll do some housekeeping jobs first:
+Let's see how it works on some randome input text data, we'll do some housekeeping jobs first:
 <!-- #endregion -->
 
-```python id="InCU1rILKbXK"
+```python
 # Define a text pipeline function that tokenizes and numericalizes a given sentence using the vocabulary
 text_pipeline = lambda x: vocab(tokenizer(x))
 
@@ -485,7 +486,7 @@ def predict_sentiment(model, sentence):
     return torch.sigmoid(prediction).item()
 ```
 
-```python colab={"base_uri": "https://localhost:8080/"} id="nN_2MgxoMDkC" outputId="7c63a47b-b60c-424a-b0d9-fdd3982c6c44"
+```python 
 sentiment = predict_sentiment(model, "Very bad movie")
 sentiment
 
@@ -493,7 +494,7 @@ sentiment
 # 5.249739285455989e-26
 ```
 
-```python colab={"base_uri": "https://localhost:8080/"} id="ulI-_-9yMMva" outputId="7a601284-3920-4d24-ad48-70238f11433c"
+```python 
 sentiment = predict_sentiment(model, "This movie is awesome")
 sentiment
 
@@ -507,12 +508,12 @@ Well done! Our model gives a very low score to a negative sentiment and gives 1 
 Our model is doing great, let's save it for inference later:
 <!-- #endregion -->
 
-```python id="QvD1Wmu8MTH9"
-torch.save(model.state_dict(), 'movieclassification-model.pt')
+```python
+torch. Save(model.state_dict(), 'movieclassification-model.pt')
 ```
 
 <!-- #region id="EI6dAsnsNJAA" -->
-##### Conclusion
+#### Conclusion
 <!-- #endregion -->
 
 <!-- #region id="7lPI_84ONMoU" -->
