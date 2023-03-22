@@ -7,11 +7,11 @@
 <br>
 Natural Language Processing (NLP) is a rapidly growing field with numerous applications in text classification, sentiment analysis, language translation, and more. PyTorch, one of the most popular deep learning frameworks, has been increasingly used in the development of NLP models. With PyTorch, researchers and developers can easily build and train deep learning models for processing natural language data. In this tutorial series, we will explore various neural network architectures for NLP tasks and demonstrate how PyTorch can be used to implement them.
 
-One of the essential components in NLP models is the handling of text data. The torchtext library provides a simple and efficient way to load and preprocess text data for NLP tasks. We will be using torchtext library in today's tutorial to load and preprocess text data. Additionally, word embeddings are a fundamental part of NLP, and we will be using the embedding layer from PyTorch to encode the text data into dense vectors, which can be processed by the NLP model.
+One of the essential components in NLP models is the handling of text data. The torchtext library provides simple and efficient methods to preprocess text data for NLP tasks. We will be using torchtext library in today's tutorial to preprocess text data. Additionally, word embeddings are a fundamental part of NLP, and we will be using the embedding layer from PyTorch to encode the text data into dense vectors, which can be processed by the NLP model.
 
 In this first part of the tutorial series, we will be focusing on the text classification task for IMDB movie reviews, text classification is a crucial part of many real-world applications, such as search engines, recommender systems, and chatbots. Therefore, understanding how to build accurate and efficient text classification models is essential in NLP. 
 
-We will start by exploring word embeddings and their significance in NLP models. We will learn how to load and preprocess text data using torchtext, and then use the embedding layer from PyTorch to generate word embeddings. By the end of this tutorial, you will have a good understanding of word embeddings and be able to use them to encode text data for NLP tasks using PyTorch.
+We will start by exploring word embeddings and their significance in NLP models. We will learn how to create text datasets and dataloaders in PyTorch, preprocess text data using the  torchtext library, and then use the embedding layer from PyTorch to generate word embeddings. By the end of this tutorial, you will have a good understanding of word embeddings and be able to use them to encode text data for NLP tasks using PyTorch.
 <!-- #endregion -->
 
 <!-- #region id="nAk1ZAgcNHYo" -->
@@ -471,7 +471,7 @@ print("Test: Loss: %.4f Acc: %.4f" %
 <!-- #region id="ioI0sJaBKpMr" -->
 We get around 88.1% accuracy on the test dataset. Not bad!
 
-Let's see how it works on some randome input text data, we'll do some housekeeping jobs first:
+Let's see how it works on some random input text data, we'll do some housekeeping jobs first:
 <!-- #endregion -->
 
 ```python
@@ -517,7 +517,7 @@ torch.save(model.state_dict(), 'movieclassification-model.pt')
 <!-- #endregion -->
 
 <!-- #region id="7lPI_84ONMoU" -->
-In this tutorial, we have learned how to use torchtext library to load and preprocess text data for text classification. We have also learned how to use `nn.Embedding` layer to generate word embeddings and encode text data into low-dimensional vectors. We have built a simple text classification model using PyTorch and trained it on the IMDB movie reviews dataset. We have seen how word embeddings can improve the performance of text analysis by capturing inter-word semantics.
+In this tutorial, we have learned how to use the torchtext library to preprocess text data for text classification. We have also learned how to use `nn.Embedding` layer to generate word embeddings and encode text data into low-dimensional vectors. We have built a simple text classification model using PyTorch and trained it on the IMDB movie reviews dataset. We have seen how word embeddings can improve the performance of text analysis by capturing inter-word semantics.
 
 In the next tutorial, we will explore another neural network architecture for text classification: the Transformer encoder. The Transformer encoder is a powerful model that uses attention mechanism to process sequential data. We will see how to build and train a Transformer encoder using PyTorch for the same task of text classification. Stay tuned!
 <!-- #endregion -->
