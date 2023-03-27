@@ -8,7 +8,7 @@ MLflow is an open-source platform for managing the end-to-end machine learning l
 
 When used in conjunction with Azure ML, MLflow allows you to easily manage and track your machine learning experiments, regardless of whether you are working alone or as part of a team. You can keep track of metrics, parameters, and artifacts associated with each experiment, and use MLflow to reproduce past results and compare different runs.
 
-In this tutorial, we will provide you with step-by-step guidance on how to use Azure Machine Learning and MLflow to conduct and track a machine learning experiment in PyTorch, specifically training a convolutional neural network (CNN) model for MNIST classification. By the end of this tutorial, you will have a practical understanding of how to use Azure Machine Learning and MLflow to streamline your machine learning workflow and achieve reproducible results. Let's get started!
+In this tutorial, we will provide you with step-by-step guidance on how to use Azure Machine Learning and MLflow to conduct and track a machine learning experiment in PyTorch, specifically training a simple neural network model for MNIST classification. By the end of this tutorial, you will have a practical understanding of how to use Azure Machine Learning and MLflow to streamline your machine learning workflow and achieve reproducible results. Let's get started!
 
 If you do not already have an Azure subscription, sign up for a free trial at https://azure.microsoft.com.
 
@@ -88,13 +88,13 @@ mlflow.set_experiment(experiment.name)
 
 
 
-    <Experiment: artifact_location='', creation_time=1679882968537, experiment_id='3786ea38-373a....', last_update_time=None, lifecycle_stage='active', name='pytorch-cnn-mlflow', tags={}>
+    <Experiment: artifact_location='', creation_time=1679882968537, experiment_id='3786ea38-373a....', last_update_time=None, lifecycle_stage='active', name='pytorch-mlflow', tags={}>
 
 
 
 #### PyTorch experiment preparation
 
-Our machine learning project is simple, we'll develop a CNN model for the traditionl MNIST classification problem. We'll start by preparing the dataset and dataloader for our work, and define the CNN architecture.
+Our machine learning project is simple, we'll develop a PyTorch neural network model for the traditionl MNIST classification problem. We'll start by preparing the dataset and dataloader for our work, and define the CNN architecture.
 
 
 ```python
@@ -250,7 +250,7 @@ print('See details at', experiment_url)
 
 #### Conclusion
 
-Azure Machine Learning and MLflow are powerful tools that can help you manage and scale your machine learning workloads, automate model training and deployment, and keep track of experiments and results. In this tutorial, we have provided you with a practical example of how to use Azure Machine Learning and MLflow to train a CNN model for MNIST classification in PyTorch.
+Azure Machine Learning and MLflow are powerful tools that can help you manage and scale your machine learning workloads, automate model training and deployment, and keep track of experiments and results. In this tutorial, we have provided you with a practical example of how to use Azure Machine Learning and MLflow to train a PyTorch model for MNIST classification in PyTorch.
 
 By following this tutorial, you should have gained a good understanding of how to use Azure Machine Learning and MLflow to streamline your machine learning workflow and achieve reproducible results. We encourage you to continue exploring the many capabilities of Azure Machine Learning and MLflow and to apply them to your own machine learning projects. In the coming weeks, we will be adding more tutorials and guides on Azure ML, so stay tuned for more!
 
