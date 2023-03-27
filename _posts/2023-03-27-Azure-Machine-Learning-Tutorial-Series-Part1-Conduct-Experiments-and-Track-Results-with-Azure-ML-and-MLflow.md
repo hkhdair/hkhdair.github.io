@@ -1,6 +1,6 @@
 ### Azure Machine Learning Tutorial Series
 
-### Part 1: Conduct Experiments and Track Results with Azure ML and MLflow
+### Part 1: Conduct PyTorch Experiments and Track Results with Azure ML and MLflow
 
 Azure Machine Learning (Azure ML) is a cloud-based platform that enables developers and data scientists to build, train, and deploy machine learning models at scale. It provides an end-to-end workflow that covers data preparation, model training, deployment, and monitoring, all in one integrated environment.
 
@@ -88,7 +88,7 @@ mlflow.set_experiment(experiment.name)
 
 
 
-    <Experiment: artifact_location='', creation_time=1679882968537, experiment_id='3786ea38-373a-4926-a487-06e3c41af21b', last_update_time=None, lifecycle_stage='active', name='pytorch-cnn-mlflow', tags={}>
+    <Experiment: artifact_location='', creation_time=1679882968537, experiment_id='3786ea38-373a....', last_update_time=None, lifecycle_stage='active', name='pytorch-cnn-mlflow', tags={}>
 
 
 
@@ -245,7 +245,7 @@ experiment_url = experiment.get_portal_url()
 print('See details at', experiment_url)
 ```
 
-    See details at https://ml.azure.com/experiments/id/3786ea38-373a-4926-a487-06e3c41af21b?wsid=/subscriptions/9418a7e0-5335-4141-903d-c5f5ddaba480/resourcegroups/aml-resources/workspaces/aml-workspace&tid=408503c2-b5b1-4103-a1f5-15263bf18ccb
+    See details at https://ml.azure.com/experiments/id/3786ea38-373a-4926.....?wsid=/subscriptions/9418a7e......./resourcegroups/aml-resources/workspaces/aml-workspace&tid=408503c2......
     
 
 #### Conclusion
