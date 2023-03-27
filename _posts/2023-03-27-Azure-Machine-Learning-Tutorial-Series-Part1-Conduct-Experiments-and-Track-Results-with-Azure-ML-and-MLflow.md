@@ -73,7 +73,7 @@ import mlflow
 
 To use MLflow to track metrics for an inline experiment, you must set the MLflow tracking URI to the workspace where the experiment is being run, using `ws.get_mlflow_tracking_uri()'. This enables you to use mlflow tracking methods to log data to the experiment run.
 
-Then we will create Azure ML experiment in our workspace. We give the experiment a unique name such as, 'pytorch-cnn-mlflow'.
+Then we will create Azure ML experiment in our workspace. We give the experiment a unique name such as, 'pytorch-mlflow'.
 
 
 ```python
@@ -81,7 +81,7 @@ Then we will create Azure ML experiment in our workspace. We give the experiment
 mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 
 # Create an Azure ML experiment in your workspace
-experiment = Experiment(workspace=ws, name='pytorch-cnn-mlflow')
+experiment = Experiment(workspace=ws, name='pytorch-mlflow')
 mlflow.set_experiment(experiment.name)
 ```
 
@@ -94,7 +94,7 @@ mlflow.set_experiment(experiment.name)
 
 #### PyTorch experiment preparation
 
-Our machine learning project is simple, we'll develop a PyTorch neural network model for the traditionl MNIST classification problem. We'll start by preparing the dataset and dataloader for our work, and define the CNN architecture.
+Our machine learning project is simple, we'll develop a PyTorch neural network model for the traditionl MNIST classification problem. We'll start by preparing the dataset and dataloader for our work, and define the network architecture.
 
 
 ```python
