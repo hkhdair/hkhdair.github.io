@@ -1,18 +1,18 @@
 ### Azure Machine Learning Tutorial Series
 
-### Part 1: Conduct PyTorch Experiments and Track Results with Azure ML and MLflow
+### Part 1: Manage PyTorch Experiments and Track Results with AzureML and MLflow
 
-Azure Machine Learning (Azure ML) is a cloud-based platform that enables developers and data scientists to build, train, and deploy machine learning models at scale. It provides an end-to-end workflow that covers data preparation, model training, deployment, and monitoring, all in one integrated environment.
+Azure Machine Learning (AzureML) is a cloud-based platform that enables developers and data scientists to build, train, and deploy machine learning models at scale. It provides an end-to-end workflow that covers data preparation, model training, deployment, and monitoring, all in one integrated environment.
 
 MLflow is an open-source platform for managing the end-to-end machine learning lifecycle. It provides tools for tracking experiments, packaging code into reproducible runs, and sharing and deploying models.
 
-When used in conjunction with Azure ML, MLflow allows you to easily manage and track your machine learning experiments, regardless of whether you are working alone or as part of a team. You can keep track of metrics, parameters, and artifacts associated with each experiment, and use MLflow to reproduce past results and compare different runs.
+When used in conjunction with AzureML, MLflow allows you to easily manage and track your machine learning experiments, regardless of whether you are working alone or as part of a team. You can keep track of metrics, parameters, and artifacts associated with each experiment, and use MLflow to reproduce past results and compare different runs.
 
-In this tutorial, we will provide you with step-by-step guidance on how to use Azure Machine Learning and MLflow to conduct and track a machine learning experiment in PyTorch, specifically training a simple neural network model for MNIST classification. By the end of this tutorial, you will have a practical understanding of how to use Azure Machine Learning and MLflow to streamline your machine learning workflow and achieve reproducible results. Let's get started!
+In this tutorial, we will provide you with step-by-step guidance on how to use AzureML and MLflow to conduct and track a machine learning experiment in PyTorch, specifically training a simple neural network model for MNIST classification. By the end of this tutorial, you will have a practical understanding of how to use AzureML and MLflow to streamline your machine learning workflow and achieve reproducible results. Let's get started!
 
-If you do not already have an Azure subscription, sign up for a free trial at https://azure.microsoft.com.
+Firstly, if you do not already have an Azure subscription, sign up for a free trial at https://azure.microsoft.com.
 
-Use Azure CLI to do the following: 
+Next, use Azure CLI to do the following: 
 <br>
 <small>to install Azure CLI (Windows, Linux, macOS) follow [this link](https://adamtheautomator.com/install-azure-cli/)</small>
 <br>
@@ -63,7 +63,7 @@ ws = Workspace.from_config()
 
 Then, we need to create an experiment for our machine learning project. An experiment is a logical container for a group of related runs. A run is a single execution of a machine learning script or pipeline. 
 
-We'll import the Experiment class from the `azureml.core` module. This class provides methods and properties to create and manage experiments in Azure ML. And then we'll import the `mlflow` module. MLflow provides APIs and tools to log metrics, parameters, artifacts, and models from your runs.
+We'll import the Experiment class from the `azureml.core` module. This class provides methods and properties to create and manage experiments in AzureML. And then we'll import the `mlflow` module. MLflow provides APIs and tools to log metrics, parameters, artifacts, and models from your runs.
 
 
 ```python
@@ -73,7 +73,7 @@ import mlflow
 
 To use MLflow to track metrics for an inline experiment, you must set the MLflow tracking URI to the workspace where the experiment is being run, using `ws.get_mlflow_tracking_uri()'. This enables you to use mlflow tracking methods to log data to the experiment run.
 
-Then we will create Azure ML experiment in our workspace. We give the experiment a unique name such as, 'pytorch-mlflow'.
+Then we will create AzureML experiment in our workspace. We give the experiment a unique name such as, 'pytorch-mlflow'.
 
 
 ```python
@@ -136,7 +136,7 @@ class Net(nn.Module):
       from .autonotebook import tqdm as notebook_tqdm
     
 
-Note that in the code above we defined some experiment parameters that are unique to the current experiment and we'll use MLflow and Azure ML to log and track such parameters for the current experiment.
+Note that in the code above we defined some experiment parameters that are unique to the current experiment and we'll use MLflow and AzureML to log and track such parameters for the current experiment.
 
 
 ```python
@@ -234,9 +234,9 @@ for metric, value in last_run.get_metrics().items():
     train_accuracy [0.8250333333333333, 0.9193166666666667, 0.9371666666666667, 0.9495333333333333, 0.9585833333333333, 0.9654, 0.9709166666666667, 0.97495, 0.9781333333333333, 0.98075]
     
 
-Let's check all logs and the experiment in Azure ML Studio.
+Let's check all logs and the experiment in Azure Machine Learning Studio.
 
-The `get_portal_url()` method returns a URL that points to the experiment details page in Azure ML studio.
+The `get_portal_url()` method returns a URL that points to the experiment details page in Azure Machine Learning studio.
 
 
 ```python
@@ -250,8 +250,8 @@ print('See details at', experiment_url)
 
 #### Conclusion
 
-Azure Machine Learning and MLflow are powerful tools that can help you manage and scale your machine learning workloads, automate model training and deployment, and keep track of experiments and results. In this tutorial, we have provided you with a practical example of how to use Azure Machine Learning and MLflow to train a PyTorch model for MNIST classification in PyTorch.
+AzureMl and MLflow are powerful tools that can help you manage and scale your machine learning workloads, automate model training and deployment, and keep track of experiments and results. In this tutorial, we have provided you with a practical example of how to use Azure Machine Learning and MLflow to train a PyTorch model for MNIST classification in PyTorch.
 
-By following this tutorial, you should have gained a good understanding of how to use Azure Machine Learning and MLflow to streamline your machine learning workflow and achieve reproducible results. We encourage you to continue exploring the many capabilities of Azure Machine Learning and MLflow and to apply them to your own machine learning projects. In the coming weeks, we will be adding more tutorials and guides on Azure ML, so stay tuned for more!
+By following this tutorial, you should have gained a good understanding of how to use AzureML and MLflow to streamline your machine learning workflow and achieve reproducible results. We encourage you to continue exploring the many capabilities of AzureML and MLflow and to apply them to your own machine learning projects. We will be adding more tutorials and guides on AzureML, in the coming weeks, so stay tuned for more!
 
 
