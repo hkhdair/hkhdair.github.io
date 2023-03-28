@@ -5,15 +5,15 @@
     <link>https://github.com/username/repo</link>
     <description>My RSS feed description</description>
     <item>
-      <title>Mastering Natural Language Processing with PyTorch</title>
-      <link>https://github.com/hkhdair/hkhdair.github.io/blob/master/_posts/2023-03-21-Mastering-Natural-Language-Processing-with-PyTorch-A-Complete-Guide-for-Beginners_-Part1-Text-Classification-with-Torchtext-and-Word-Embeddings.md</link>
+      <title>Mastering Natural Language Processing with PyTorch - A Complete Guide for Beginners</title>
+      <link>https://hkhdair.github.io/2023/03/21/Mastering-Natural-Language-Processing-with-PyTorch-A-Complete-Guide-for-Beginners_-Part1-Text-Classification-with-Torchtext-and-Word-Embeddings.html</link>
       <description>Mastering Natural Language Processing with PyTorch - A Complete Guide for Beginners</description>
       <pubDate>Tue, 21 Mar 2023 10:19:19 +1030</pubDate>
     </item>
     <item>
-      <title>Azure Machine Learning Tutorial Series</title>
-      <link>https://github.com/hkhdair/hkhdair.github.io/blob/master/_posts/2023-03-27-Azure-Machine-Learning-Tutorial-Series-Part1-Conduct-Experiments-and-Track-Results-with-Azure-ML-and-MLflow.md</link>
-      <description>Azure Machine Learning Tutorial Series-Manage PyTorch Experiments and Track Results with Azure ML and MLflow</description>
+      <title>Azure Machine Learning Tutorial</title>
+      <link>https://hkhdair.github.io/2023/03/27/Azure-Machine-Learning-Tutorial-Series-Part1-Conduct-Experiments-and-Track-Results-with-Azure-ML-and-MLflow.html</link>
+      <description>Azure Machine Learning Tutorial Series - Manage PyTorch Experiments and Track Results with Azure ML and MLflow</description>
       <pubDate>Mon, 27 Mar 2023 10:19:19 +1030</pubDate>
     </item>
   </channel>
