@@ -352,7 +352,7 @@ class TextClassificationModel(nn.Module):
 ```
 
 <!-- #region id="xLU76hhd_w8U" -->
-Our model is a simple text classification model that consists of two layers: an embedding layer and a linear layer. It first applies the embedding layer to get a low-dimensional representation of each token in the text. Then it permutes the dimensions of the embedded tensor to match the expected input shape of the average pooling layer. Next, it applies the average pooling layer to get a fixed-length representation of the whole text by averaging over all tokens. Finally, it passes this representation to the linear layer to get a single output value for each text. The model is an adaptation of the [FastText](https://arxiv.org/pdf/1607.01759.pdf#:~:text=This%20paper%20explores%20a%20simple%20and%20ef%EF%AC%81cientbaseline%20for,sentences%20among%20312Kclasses%20in%20less%20than%20a%20minute) model, which provided a simple and efficient way to perform text classification.
+Our model is a simple text classification model that consists of two layers: an embedding layer and a linear layer. It first applies the embedding layer to get a low-dimensional representation of each token in the text. Then it permutes the dimensions of the embedded tensor to match the expected input shape of the average pooling layer. Next, it applies the average pooling layer to get a fixed-length representation of the whole text by averaging over all tokens. Finally, it passes this representation to the linear layer to get a single output value for each text.
 
 The structure and layers of the model are shown below:
 
