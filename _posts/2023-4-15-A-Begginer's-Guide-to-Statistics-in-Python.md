@@ -201,7 +201,7 @@ plt.boxplot(data, vert=False)
 plt.show()
 ```
 
-![Alt text](output.png)
+![Alt text](/images/output.png)
 
 
 
