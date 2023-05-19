@@ -191,7 +191,7 @@ import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots(figsize=(10, 6))
 
-# Create a Series with 30 random values
+# Generate a Series with 30 random numbers with mean 50 and standard deviation 10
 data = pd.Series(np.random.normal(50, 10, 30))
 
 # Add some outliers to the Series
