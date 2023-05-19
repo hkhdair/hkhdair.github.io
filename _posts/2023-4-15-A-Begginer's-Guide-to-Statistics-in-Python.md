@@ -189,7 +189,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Generate a Series with 30 random numbers, with mean 50 and standard deviation 10
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Create a Series with 30 random values
 data = pd.Series(np.random.normal(50, 10, 30))
 
 # Add some outliers to the Series
@@ -197,7 +199,8 @@ data[0] = 10
 data[1] = 100
 
 # Create a horizontal box plot of the data
-plt.boxplot(data, vert=False)
+ax.boxplot(data, vert=False)
+
 plt.show()
 ```
 
