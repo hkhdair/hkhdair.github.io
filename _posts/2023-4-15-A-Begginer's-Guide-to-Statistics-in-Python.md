@@ -29,7 +29,7 @@ Different situations may require different measures of central tendency. For exa
 
 Let's look at an example in Python. We have recorded the speed of 13 cars:
 
-```
+```python
 speed = [99, 86, 87, 88, 111, 86, 103, 87, 94, 78, 77, 85, 86]
 
 ```
@@ -38,7 +38,7 @@ speed = [99, 86, 87, 88, 111, 86, 103, 87, 94, 78, 77, 85, 86]
 
 The mean value is the average value. To calculate the mean, find the sum of all values, and divide the sum by the number of values:
 
-```
+```python
 mean = sum(speed) / len(speed)
 print(mean)
 
@@ -48,7 +48,7 @@ Output: `89.77`
 
 We can also use the NumPy module to calculate the mean:
 
-```
+```python
 import numpy as np
 
 mean = np.mean(speed)
@@ -60,7 +60,7 @@ print(mean)
 
 The median value is the value in the middle, after you have sorted all the values. It is important that the numbers are sorted before you can find the median.
 
-```
+```python
 speed.sort()
 median = speed[len(speed) // 2]
 print(median)
@@ -71,7 +71,7 @@ Output: `87`
 
 We can also use the NumPy module to calculate the median:
 
-```
+```python
 import numpy as np
 
 median = np.median(speed)
@@ -83,7 +83,7 @@ print(median)
 
 The mode value is the value that appears the most number of times.
 
-```
+```python
 from scipy import stats
 
 mode = stats.mode(speed)
@@ -101,12 +101,12 @@ Variance is another number that indicates how spread out the values are. In fact
 
 Let's look at an example in Python. We have recorded the speed of 7 cars:
 
-```
+```python
 speed = [86, 87, 88, 86, 87, 85, 86]
 
 ```
 
-```
+```python
 import numpy as np
 
 # Standard deviation
@@ -143,7 +143,7 @@ In probability theory, normal data distribution is also known as the Gaussian da
 
 Let's create an array with 100000 values that are concentrated around a given value and draw a histogram with 100 bars:
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -161,7 +161,7 @@ Output:
 
 A scatter plot is a diagram where each value in the data set is represented by a dot.
 
-```
+```python
 x = [5, 7, 8, 7, 2, 17, 2, 9, 4, 11, 12, 9, 6]
 y = [99, 86, 87, 88, 111, 86, 103, 87, 94, 78, 77, 85, 86]
 
@@ -184,7 +184,7 @@ A box plot is used to summarize and compare the distribution and variability of 
 
 An example of a random data set and its box plot is shown below:
 
-```
+```python
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
